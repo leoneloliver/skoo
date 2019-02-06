@@ -44,12 +44,20 @@ handleClick = () => {
         var email = this.getAttribute("data-email");
         var avatar = this.getAttribute("data-avatar");
 
+        document.getElementById("my-modal").classList.add("show-it");
+
         alert(fullname+' - '+address+' - '+email+' - '+avatar);
 
       };
       Array.from(classname).forEach(function(element) {
         element.addEventListener("click", myFunction);
       });
+
+      document.getElementById("close").addEventListener("click", closeModal);
+      function closeModal(){
+        document.getElementById("my-modal").classList.remove("show-it");
+      }
+
     }
     setTimeout(function(){ clickable(); }, 900);
   }
@@ -85,7 +93,9 @@ handleClick = () => {
   }
 
   filterNames(e){
-    this.setState({users: this.state.store.filter((item) => item.name.toLowerCase().includes(e.target.value.toLowerCase()))})
+    this.setState({users: this.state.store.filter((item) => item.name.toLowerCase().includes(e.target.value.toLowerCase()))});
+    //call function when search 
+    this.handleClick();
   }
 
   handleLoad() {

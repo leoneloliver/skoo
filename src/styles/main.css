@@ -178,6 +178,18 @@ a {
   display: none;
   transition: all .9s ease;
 }
+.address-details{
+  font-size: 1.1em;
+  text-transform: capitalize;
+  margin-bottom: 22px;
+  color: #929292;
+}
+.avatar-details{
+  margin-top: 22px;
+    border-radius: 80px;
+    border: 2px solid #fff;
+    width: 110px;
+}
 .product-block:hover .address {
   display: block;
   transition: all .9s ease;
@@ -410,7 +422,7 @@ span.time {
   color: #969696;
   font-weight: 100;
 }
-div#loading {
+.loading {
   height: 100vh;
   position: fixed;
   width: 100%;
@@ -418,19 +430,19 @@ div#loading {
   top: 0;
   z-index: 9999999999999;
 }
-div#loading.loaded {
+[class*="loaded"]{
   display: none;
 }
-div#loading .bar {
+.loading .bar {
   height: 20px;
 }
-div#loading #bar #fill {
+.loading #bar #fill {
   height: 8px;
   width: 2%;
   background: #0fbeba;
   transition: all .9s ease !important;
 }
-div#loading #bar #fill.full {
+.loading #bar #fill.full {
   width: 100%;
   transition: all .9s ease !important;
 }

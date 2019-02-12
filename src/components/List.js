@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import snipet from '../images/ajax-loader.gif';
 import SearchBar from './SearchBar'
 import styles from '../styles/main.css'
 import axios from 'axios'
@@ -14,12 +15,21 @@ handleClick = () => {
         var email = this.getAttribute("data-email");
         var avatar = this.getAttribute("data-avatar");
         document.getElementById("my-modal").classList.add("show-it");
-        alert(fullname+' - '+address+' - '+email+' - '+avatar);
+        //alert(fullname+' - '+address+' - '+email+' - '+avatar);
+        document.getElementById("avatar").src=avatar;
+        document.getElementById("name").innerText=fullname;
+        document.getElementById("address").innerText=address;
+        document.getElementById("email").innerText=email;
+        document.getElementById("my-modal").classList.add("show-it"); 
+        // document.getElementById("badge").innerText=fullname;
+        // document.getElementById("mini-avatar").src=avatar;
       };
+      document.getElementById("loading").classList.add("loaded"); 
       Array.from(classname).forEach(function(element) {
         element.addEventListener("click", myFunction);
       });
       document.getElementById("close").addEventListener("click", closeModal);
+      document.getElementById("my-modal").addEventListener("click", closeModal);
       function closeModal(){
         document.getElementById("my-modal").classList.remove("show-it");
       }
@@ -88,6 +98,14 @@ handleClick = () => {
             )}
           </ul>
         </div>
+
+        <div id="loading" className={`${styles['loading']} ${styles['center']}`}>
+          <div id="bar">
+            <div id="fill"></div>
+          </div>
+          <img src={snipet} className={styles["ico-load"]} />
+        </div>
+
       </div>  
     );
   }

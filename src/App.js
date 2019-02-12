@@ -13,13 +13,13 @@ const Modal = () => {
       <div className={styles['card']}>
         <div id="close" className={styles['close']}>X</div>
         <div className={`${styles['profile-bg']} ${styles['center']}`}>
-          <img src="" id="avatar" /> 
+          <img src="" id="avatar" className={styles['avatar-details']}/> 
         </div> 
         <div className={styles['profile-info']}>
-          <div className={styles['review center']}><span>&#9733;</span> 4.9</div>
+          <div className={`${styles['review']} ${styles['center']}`}><span>&#9733;</span> 4.9</div>
           <h2 id="name" className={styles['center']}></h2>
           <div id="email" className={styles['center']}></div>
-          <div id="address" className={styles['center']}></div>
+          <div id="address" className={`${styles['address-details']} ${styles['center']}`}></div>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
           </p>

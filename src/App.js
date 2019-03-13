@@ -33,6 +33,26 @@ const Modal = () => {
   );
 };
 
+const Msg = () => {
+  return (
+    <div id="message-box" className={styles['message-box']}>
+      <div id="close-box" className={styles['close-box']}>X</div>
+      <div className={styles['message-container']}>
+        <div className={styles['message-title']}>
+          <img src="" id="mini-avatar" className={styles['mini-avatar']}/><div className={styles['badge']} id="badge"></div>
+        </div>
+        <div id="msg" className={styles['msg']}>
+        </div>
+      </div>
+      <div className={styles['message-footer']}>   
+        <input type="text" name="message" id="message" placeholder="Write a message"/>
+        <input type="submit" value="Send" id="send"/>
+      </div>
+  </div>
+  );
+
+};
+
 
 
 class App extends Component {
@@ -50,8 +70,11 @@ class App extends Component {
               <Route exact path="/list" component={List} />          
             </div>
           </main>
+
           <Modal />
+          
           <Footer />
+          <Msg />
         </div>
       </Router>
     );

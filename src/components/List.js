@@ -7,6 +7,7 @@ import axios from 'axios'
 class List extends Component {
 
 handleClick = () => {
+    var objBody = document.body;
     function clickable(){
       var classname = document.getElementsByClassName("class-static");
       var myFunction = function() {
@@ -20,7 +21,14 @@ handleClick = () => {
         document.getElementById("name").innerText=fullname;
         document.getElementById("address").innerText=address;
         document.getElementById("email").innerText=email;
+        objBody.classList.add("noscroll");
+
+
         document.getElementById("my-modal").classList.add("show-it"); 
+        document.getElementById("badge").innerText=fullname;
+        document.getElementById("mini-avatar").src=avatar;
+       
+
         // document.getElementById("badge").innerText=fullname;
         // document.getElementById("mini-avatar").src=avatar;
       };
@@ -32,9 +40,38 @@ handleClick = () => {
       document.getElementById("my-modal").addEventListener("click", closeModal);
       function closeModal(){
         document.getElementById("my-modal").classList.remove("show-it");
+        objBody.classList.remove("noscroll");
       }
     }
     setTimeout(function(){ clickable(); }, 900);
+    setTimeout(function(){ 
+      document.getElementById("fill").classList.add("full");
+    },50);
+
+     
+    document.getElementById("close-box").addEventListener("click", closeMessege);
+    function closeMessege(){
+      document.getElementById("message-box").classList.remove("show");
+    }
+    var callMsg = function(){
+      var box = document.getElementById("msg");
+      box.innerHTML = "";
+      document.getElementById("message-box").classList.add("show"); 
+      var btn = document.getElementById("send");
+      var message = document.getElementById("message");
+      message.focus();
+
+      function sendMessage(){
+        box.innerHTML += "<p class='line'>"+ message.value+"</p>";
+        message.value = "";
+      }
+      
+      btn.addEventListener("click", sendMessage);
+      
+    }
+    document.getElementById("call-msg").addEventListener("click", callMsg);
+ 
+    
   }
   constructor(props) {
     super(props);
@@ -100,8 +137,8 @@ handleClick = () => {
         </div>
 
         <div id="loading" className={`${styles['loading']} ${styles['center']}`}>
-          <div id="bar">
-            <div id="fill"></div>
+          <div id="bar" className={styles['bar']}>
+            <div id="fill" className={styles['fill']}></div>
           </div>
           <img src={snipet} className={styles["ico-load"]} />
         </div>
